@@ -15,6 +15,13 @@ export default class Question extends React.Component{
       <tr>
         <td>{this.state.question.question}</td>
         <td>{this.state.question.answer}</td>
+        <td>
+          <center>
+            <button className="btn btn-info">View</button>
+            <button className="btn btn-primary">Edit</button>
+            <button className="btn btn-danger">Delete</button>
+          </center>
+        </td>
       </tr>
     )
   };
