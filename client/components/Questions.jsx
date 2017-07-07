@@ -22,7 +22,6 @@ export default class Questions extends React.Component {
     })
     .then(function(data){
       that.setState({questions: data.questions});
-      console.log('state', that.state.questions);
     })
     .catch(function(err){
       console.log('getQuestionsList', err);
@@ -43,12 +42,11 @@ export default class Questions extends React.Component {
 
     return (
       <div>
-        <table className="table">
+        <table className="table table-hover">
           <thead>
             <tr>
-              <th>Question</th>
-              <th>Answer</th>
-              <th>Action</th>
+              <th className="col-md-6">Question</th>
+              <th className="col-md-3">Answer</th>
             </tr>
           </thead>
           <tbody>
