@@ -1,6 +1,7 @@
 import React from 'react';
 import Questions from './Questions.jsx';
 import NewQuestion from './NewQuestion.jsx';
+import UpdateQuestion from './UpdateQuestion.jsx';
 
 export default class App extends React.Component {
 
@@ -46,11 +47,22 @@ export default class App extends React.Component {
     this.setState({questions: newQuestionList});
   };
 
+  updateListOnUpdate(item){
+    let updatedQuestionList = this.state.questions.map(function(q){
+      if(item.id == q.id){
+        q = item;
+      }
+      return q;
+    });
+    this.setState({questions: updatedQuestionList});
+  };
+
   render() {
     return (
       <div>
         <Questions questions={this.state.questions}
-                   handleDeletedItem={this.updateListOnDelete.bind(this)} />
+                   handleDeletedItem={this.updateListOnDelete.bind(this)}
+                   handleUpdatedItem={this.updateListOnUpdate.bind(this)} />
         <NewQuestion handleNewItem={this.updateListOnCreate.bind(this)} />
       </div>
     );
