@@ -60,10 +60,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        <NewQuestion handleNewItem={this.updateListOnCreate.bind(this)} />
         <Questions questions={this.state.questions}
                    handleDeletedItem={this.updateListOnDelete.bind(this)}
                    handleUpdatedItem={this.updateListOnUpdate.bind(this)} />
-        <NewQuestion handleNewItem={this.updateListOnCreate.bind(this)} />
       </div>
     );
   }
