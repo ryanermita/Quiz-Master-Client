@@ -22,8 +22,6 @@ export default class NewQuestion extends React.Component {
     let that = this;
     let data = JSON.stringify({'quiz': this.state});
 
-    console.log('data', data);
-
     fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -36,7 +34,12 @@ export default class NewQuestion extends React.Component {
       return response.json();
     })
     .then(function(data){
-      console.log('data', data);
+      that.setState({
+        question: '',
+        answer: ''
+      });
+
+      that.props.handleNewItem(data.question);
     })
     .catch(function(err){
       console.log('submitQuestion', err);
