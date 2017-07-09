@@ -7,7 +7,7 @@ export default class Questions extends React.Component {
     let that = this;
     let questions = this.props.questions.map(function(question){
         return (
-          <Question question={question} key={question.id} />
+          <Question question={question} key={question.id} onDelete={that.props.handleDeletedItem} />
         );
       });
 

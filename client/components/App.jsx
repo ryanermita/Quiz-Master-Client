@@ -39,10 +39,18 @@ export default class App extends React.Component {
     this.setState({questions: newQuestionList});
   };
 
+  updateListOnDelete(question){
+    let newQuestionList = this.state.questions.filter(function(q){
+      return question.id !== q.id;
+    });
+    this.setState({questions: newQuestionList});
+  };
+
   render() {
     return (
       <div>
-        <Questions questions={this.state.questions} />
+        <Questions questions={this.state.questions}
+                   handleDeletedItem={this.updateListOnDelete.bind(this)} />
         <NewQuestion handleNewItem={this.updateListOnCreate.bind(this)} />
       </div>
     );
