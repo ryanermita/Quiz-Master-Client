@@ -45,7 +45,8 @@ export default class UpdateQuestion extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-primary btn-sm" data-toggle="modal" data-target={"#" + this.state.question_id} > Update</button>
+        <button style={{marginRight: '5px'}} className="pull-left btn btn-primary btn-sm" 
+                data-toggle="modal" data-target={"#" + this.state.question_id} > Update</button>
         <div className="modal fade" tabIndex="-1" role="dialog" id={this.state.question_id}>
           <div className="modal-dialog" role="document">
             <div className="modal-content">

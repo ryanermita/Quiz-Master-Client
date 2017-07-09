@@ -16,7 +16,8 @@ export default class ViewQuestion extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-info btn-sm" data-toggle="modal" data-target={"#view-" + this.state.question_id} > View</button>
+        <button style={{marginRight: '5px'}} className="pull-left btn btn-info btn-sm" 
+                data-toggle="modal" data-target={"#view-" + this.state.question_id} > View</button>
         <div className="modal fade" tabIndex="-1" role="dialog" id={"view-" + this.state.question_id}>
           <div className="modal-dialog" role="document">
             <div className="modal-content">
