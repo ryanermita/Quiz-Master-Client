@@ -1,74 +1,46 @@
 import React from 'react';
-import Questions from './Questions.jsx';
-import NewQuestion from './NewQuestion.jsx';
-import UpdateQuestion from './UpdateQuestion.jsx';
-import NavBar from './NavBar.jsx';
+import ManageQuestion from './ManageQuestion.jsx';
 
 export default class App extends React.Component {
-
-  constructor() {
-    super()
-
-    this.state = {
-      questions: []
-    }
-  };
-
-  getQuestionList() {
-    let API_URL = 'http://localhost:3000/';
-    let that = this;
-
-    // Why do I have to call then twice?
-    fetch(API_URL + 'questions/')
-    .then(function(response){
-      return response.json();
-    })
-    .then(function(data){
-      that.setState({questions: data.questions});
-    })
-    .catch(function(err){
-      console.log('getQuestionsList', err);
-    });
-  };
-
-  componentDidMount() {
-    this.getQuestionList();
-
-  };
-
-  updateListOnCreate(item){
-    let newQuestionList = this.state.questions.concat(item);
-    this.setState({questions: newQuestionList});
-  };
-
-  updateListOnDelete(question){
-    let newQuestionList = this.state.questions.filter(function(q){
-      return question.id !== q.id;
-    });
-    this.setState({questions: newQuestionList});
-  };
-
-  updateListOnUpdate(item){
-    let updatedQuestionList = this.state.questions.map(function(q){
-      if(item.id == q.id){
-        q = item;
-      }
-      return q;
-    });
-    this.setState({questions: updatedQuestionList});
-  };
 
   render() {
     return (
       <div>
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
-            <h1> Manage Questions </h1>
-            <hr />
-            <NewQuestion handleNewItem={this.updateListOnCreate.bind(this)} />
-            <Questions questions={this.state.questions}
-                       handleDeletedItem={this.updateListOnDelete.bind(this)}
-                       handleUpdatedItem={this.updateListOnUpdate.bind(this)} />
+            <div className="jumbotron">
+              <center>
+                <h1> Quiz Master </h1>
+              </center>
+            </div>
+            <div className="col-md-5 col-md-offset-4">
+              <p>
+                My implementation of Quipper's coding test.
+              </p>
+              <p>
+                Features:
+                <li>Manage Questions</li>
+                <li>Quiz Mode</li>
+              </p>
+              <p>
+                Technologies:
+                <ul>
+                  <li>Rails 4.2 - use as the backend service. Implemented as API.</li>
+                  <li>ReactJS - use as the client service.</li>
+                </ul>
+              </p>
+              <p>
+                Source codes:
+                <ul>
+                  <li>
+                    <a target="_blank" href="https://github.com/ryanermita/Quiz-Master">Quiz Master API</a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="https://github.com/ryanermita/Quiz-Master-Client">Quiz Master Client</a>
+                  </li>
+                </ul>
+              </p>
+            </div>
           </div>
         </div>
       </div>
