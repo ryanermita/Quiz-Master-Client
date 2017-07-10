@@ -1,4 +1,5 @@
 import React from 'react';
+import RichTextEditor from 'react-rte';
 
 export default class UpdateQuestion extends React.Component {
 
@@ -6,11 +7,15 @@ export default class UpdateQuestion extends React.Component {
     super(props);
 
     this.state = {
-      question: this.props.question,
+      question: RichTextEditor.createValueFromString(this.props.question, 'html'),
       answer: this.props.answer,
       question_id: this.props.question_id
     }
 
+  };
+
+  onChange(value) {
+    this.setState({question: value})
   };
 
   handleInputChange(e){
@@ -20,7 +25,10 @@ export default class UpdateQuestion extends React.Component {
   updateQuestion() {
     let API_URL = 'http://localhost:3000/questions/';
     let that = this;
-    let data = JSON.stringify({'quiz': this.state});
+    let data = JSON.stringify({'quiz':
+                                {'question': this.state.question.toString('html'),
+                                 'answer': this.state.answer}
+                              });
 
     fetch(API_URL + that.state.question_id, {
       method: 'PUT',
@@ -59,10 +67,7 @@ export default class UpdateQuestion extends React.Component {
               <div className="modal-body">
                 <div className="form-group">
                   <label>Question</label>
-                  <input type="text" className="form-control"
-                         name="question"
-                         value={this.state.question}
-                         onChange={this.handleInputChange.bind(this)} />
+                  <RichTextEditor value={this.state.question} onChange={this.onChange.bind(this)} />
                 </div>
                 <div className="form-group">
                   <label>Answer</label>
