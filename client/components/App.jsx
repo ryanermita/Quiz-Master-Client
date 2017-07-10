@@ -17,29 +17,31 @@ export default class App extends React.Component {
               <p>
                 My implementation of Quipper's coding test.
               </p>
-              <p>
-                Features:
+              
+              <h4>Features</h4>
+              <ul>
                 <li>Manage Questions</li>
                 <li>Quiz Mode</li>
-              </p>
-              <p>
-                Technologies:
-                <ul>
-                  <li>Rails 4.2 - use as the backend service. Implemented as API.</li>
-                  <li>ReactJS - use as the client service.</li>
-                </ul>
-              </p>
-              <p>
-                Source codes:
-                <ul>
-                  <li>
-                    <a target="_blank" href="https://github.com/ryanermita/Quiz-Master">Quiz Master API</a>
-                  </li>
-                  <li>
-                    <a target="_blank" href="https://github.com/ryanermita/Quiz-Master-Client">Quiz Master Client</a>
-                  </li>
-                </ul>
-              </p>
+              </ul>
+
+              <h4>Technologies</h4>
+              <ul>
+                <li>Rails 4.2 - use as the backend service. Implemented as API.</li>
+                <li>ReactJS - use as the client service.</li>
+                <li>Webpack</li>
+                <li>Babel</li>
+                <li>Yarn</li>
+              </ul>
+
+              <h4> Source codes</h4>
+              <ul>
+                <li>
+                  <a target="_blank" href="https://github.com/ryanermita/Quiz-Master">Quiz Master API</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://github.com/ryanermita/Quiz-Master-Client">Quiz Master Client</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
