@@ -1,5 +1,6 @@
 import React from 'react';
 import Questions from './Questions.jsx';
+import RichTextEditor from 'react-rte';
 
 export default class NewQuestion extends React.Component {
   
@@ -7,11 +8,14 @@ export default class NewQuestion extends React.Component {
     super();
 
     this.state = {
-      question: '',
+      question: RichTextEditor.createEmptyValue(),
       answer: ''
     }
   };
 
+  onChange(value) {
+    this.setState({question: value})
+  };
 
   handleInputChange(e){
     this.setState({[e.target.name]: e.target.value})
@@ -19,7 +23,7 @@ export default class NewQuestion extends React.Component {
 
   closeModal(){
     this.setState({
-      question: '',
+      question: RichTextEditor.createEmptyValue(),
       answer: ''
     });
   };
@@ -27,7 +31,10 @@ export default class NewQuestion extends React.Component {
   submitQuestion() {
     let API_URL = 'http://localhost:3000/questions/';
     let that = this;
-    let data = JSON.stringify({'quiz': this.state});
+    let data = JSON.stringify({'quiz':
+                                {'question': this.state.question.toString('html'),
+                                 'answer': this.state.answer}
+                              });
 
     fetch(API_URL, {
       method: 'POST',
@@ -42,7 +49,7 @@ export default class NewQuestion extends React.Component {
     })
     .then(function(data){
       that.setState({
-        question: '',
+        question: RichTextEditor.createEmptyValue(),
         answer: ''
       });
 
@@ -72,10 +79,10 @@ export default class NewQuestion extends React.Component {
               <div className="modal-body">
                 <div className="form-group">
                   <label>Question</label>
-                  <input type="text" className="form-control"
-                         name="question"
-                         value={this.state.question}
-                         onChange={this.handleInputChange.bind(this)} />
+                  <RichTextEditor value={this.state.question} onChange={this.onChange.bind(this)} />
+                </div>
+                <div className="form-group">
+                  <label>Question</label>
                 </div>
                 <div className="form-group">
                   <label>Answer</label>

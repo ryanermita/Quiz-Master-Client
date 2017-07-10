@@ -92,7 +92,8 @@ export default class QuizModeQuestion extends React.Component {
     if(this.state.answerMode){
       var markup = (
         <tr>
-          <td>{this.props.question.question} - {this.props.question.answer}</td>
+          <td dangerouslySetInnerHTML={{__html: this.props.question.question }}>
+          </td>
           <td className="text-center">
             {isCorrectLabel}
             <input className="form-control pull-left" 
@@ -116,7 +117,8 @@ export default class QuizModeQuestion extends React.Component {
     } else {
       var markup = (
         <tr>
-          <td>{this.props.question.question}</td>
+          <td dangerouslySetInnerHTML={{__html: this.props.question.question }}>
+          </td>
           <td className="text-center">
             <button className="btn btn-info btn-sm"
                     onClick={this.answerModeOn.bind(this)} >

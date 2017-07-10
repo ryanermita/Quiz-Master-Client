@@ -8,7 +8,8 @@ export default class Question extends React.Component{
   render() {
     return (
       <tr>
-        <td>{this.props.question.question}</td>
+        <td dangerouslySetInnerHTML={{__html: this.props.question.question }}>
+        </td>
         <td>{this.props.question.answer}</td>
         <td>
           <ViewQuestion question={this.props.question.question} 
