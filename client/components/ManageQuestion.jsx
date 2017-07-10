@@ -64,6 +64,7 @@ export default class App extends React.Component {
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
             <h1> Manage Questions </h1>
+            <h4>Manage your questions here. You can create, view, edit and delete questions.</h4>
             <hr />
             <NewQuestion handleNewItem={this.updateListOnCreate.bind(this)} />
             <Questions questions={this.state.questions}

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 import ManageQuestion from './components/ManageQuestion.jsx';
+import QuizMode from './components/QuizMode.jsx';
 import {
   BrowserRouter,
   NavLink,
@@ -22,12 +23,14 @@ ReactDOM.render(
               <ul className="nav navbar-nav">
                 <li><NavLink exact activeClassName="activeNav" to="/">Home</NavLink></li>
                 <li><NavLink activeClassName="activeNav" to="/manage">Manage Question</NavLink></li>
+                <li><NavLink activeClassName="activeNav" to="/quiz">Quiz Mode</NavLink></li>
               </ul>
             </div>
           </div>
         </nav>
         <Route exact path="/" component={App}/>
         <Route path="/manage" component={ManageQuestion}/>
+        <Route path="/quiz" component={QuizMode}/>
       </div>
     </BrowserRouter>,
     document.getElementById('root')
