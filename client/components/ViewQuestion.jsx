@@ -30,7 +30,8 @@ export default class ViewQuestion extends React.Component {
               <div className="modal-body">
                 <div className="form-group">
                   <label>Question</label>
-                  <p>{this.state.question}</p>
+                  <p dangerouslySetInnerHTML={{__html: this.state.question }}></p>
+
                 </div>
                 <div className="form-group">
                   <label>Answer</label>
