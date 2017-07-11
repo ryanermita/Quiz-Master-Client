@@ -14,6 +14,8 @@ A simple client for quiz master app using ReactJS.
 
 `yarn start`
 
+- the app should be accessible in http://localhost:8080
+
 ## Resources
 - [Setup a React Environment Using webpack and Babel](https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel)
 - [React Fundamentals #9 - React Router V4](https://www.youtube.com/watch?v=_Fzl0Cim6F8#t=71.302929)
