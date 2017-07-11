@@ -1,6 +1,21 @@
 # Quiz Master Client
 A simple client for quiz master app using ReactJS.
 
+## Setup
+- clone the repo
+
+` git clone git@github.com:ryanermita/Quiz-Master-Client.git`
+
+- install the project dependencies by running this command:
+
+`yarn install`
+
+- run the project using this command:
+
+`yarn start`
+
+- the app should be accessible in http://localhost:8080
+
 ## Resources
 - [Setup a React Environment Using webpack and Babel](https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel)
 - [React Fundamentals #9 - React Router V4](https://www.youtube.com/watch?v=_Fzl0Cim6F8#t=71.302929)
