@@ -11,10 +11,9 @@ export default class DeleteQuestion extends React.Component{
       method: 'DELETE',
     })
     .then(function(response){
-      return response.json();
-    })
-    .then(function(data){
-      that.props.removeItem(that.props.question);
+      if(response.status == 204){
+        that.props.removeItem(that.props.question);
+      }
     })
     .catch(function(err){
       console.log('submitQuestion', err);
